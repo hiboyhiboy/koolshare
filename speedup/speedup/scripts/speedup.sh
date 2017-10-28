@@ -21,6 +21,8 @@ if [ "$speedup_enable" != "0" ] ; then
 	check_Qos="$speedup_check_Qos"
 	Start_Qos="$speedup_Start_Qos"
 	Heart_Qos="$speedup_Heart_Qos"
+	ln -sf /koolshare/scripts/speedup.sh /koolshare/init.d/Sh27speedup.sh
+	chmod 777 /koolshare/init.d/Sh27_speedup.sh
 fi
 
 
@@ -328,6 +330,7 @@ fi
 
 case $ACTION in
 start)
+	dbus set speedup_status=0
 	speedup_close
 	speedup_check
 	;;
